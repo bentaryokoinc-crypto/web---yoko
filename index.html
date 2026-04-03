@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Verss | iOS 26 Liquid Glass</title>
     <style>
         /* iOS 26 Design System */
@@ -20,20 +20,27 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            background: #0f172a; /* Warna dasar penahan */
+        }
+
         body {
             font-family: var(--font);
+            /* Background Animasi Liquid */
             background: linear-gradient(-45deg, #0f172a, #581c87, #1e40af, #701a75);
             background-size: 400% 400%;
             animation: liquidGradient 15s ease infinite;
+            background-attachment: fixed;
+            
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 100dvh; /* dvh biar pas di layar iPhone tanpa sisa putih */
             color: var(--text);
             overflow-x: hidden;
+            margin: 0;
         }
 
-        /* Background Animation */
         @keyframes liquidGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -118,7 +125,6 @@
             transform: scale(0.95);
         }
 
-        /* Footer Decor */
         .footer-tag {
             margin-top: 40px;
             font-size: 0.7rem;
@@ -126,7 +132,6 @@
             letter-spacing: 2px;
             opacity: 0.5;
         }
-
     </style>
 </head>
 <body>
@@ -153,7 +158,7 @@
                 <span>🎮</span> YouTube Channel
             </a>
             <a href="https://wa.me/6283156476803" target="_blank" class="link-card" style="background: rgba(37, 211, 102, 0.25);">
-                <span>💬</span> WhatsApp
+                <span>💬</span> WhatsApp Me
             </a>
         </div>
 

@@ -3,74 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Mobile Links</title>
+    <title>Verss | iOS 26 Liquid Glass</title>
     <style>
-        /* Reset & Base Style */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* iOS 26 Design System */
+        :root {
+            --glass: rgba(255, 255, 255, 0.12);
+            --border: rgba(255, 255, 255, 0.25);
+            --text: #ffffff;
+            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font);
+            background: linear-gradient(-45deg, #0f172a, #581c87, #1e40af, #701a75);
+            background-size: 400% 400%;
+            animation: liquidGradient 15s ease infinite;
             display: flex;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            color: white;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        @keyframes liquidGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 380px;
             padding: 40px 20px;
             text-align: center;
+            z-index: 1;
         }
 
         /* Profile Section */
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid white;
-            margin-bottom: 15px;
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        h1 { font-size: 1.5rem; margin-bottom: 5px; }
-        p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 30px; }
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 30px; /* Squircle ala iOS */
+            border: 2px solid var(--border);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #fff;
+        }
+
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        p { 
+            font-size: 0.95rem; 
+            opacity: 0.9; 
+            font-weight: 400;
+            margin-bottom: 35px;
+            color: #e2e8f0;
+        }
 
         /* Links Section */
-        .links { display: flex; flex-direction: column; gap: 15px; }
+        .links { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
         
         .link-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            border-radius: 12px;
+            background: var(--glass);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            padding: 18px;
+            border-radius: 22px;
             text-decoration: none;
             color: white;
-            font-weight: 600;
-            transition: transform 0.2s, background 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .link-card:hover {
-            transform: scale(1.03);
-            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
+
+        .link-card:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer Decor */
+        .footer-tag {
+            margin-top: 40px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://ui-avatars.com/api/?name=User&background=random" alt="Profile" class="profile-img">
+        <div class="profile-wrapper">
+            <img src="verss-logo.jpeg" alt="Profile" class="profile-img">
+        </div>
         
         <h1>verss</h1>
         <p>Junior Developer & Tech Enthusiast</p>
 
         <div class="links">
-    <a href="https://google.com" target="_blank" class="link-card">🌐 My Portfolio</a>
-    <a href="https://instagram.com/bentar_yoko" target="_blank" class="link-card">📸 Instagram</a>
-    <a href="https://tiktok.com/@bentar_yoko" target="_blank" class="link-card">👔 TikTok</a>
-    <a href="https://youtube.com/@verss-v3l" target="_blank" class="link-card">🎮 YouTube Ch</a>
-    <a href="https://wa.me/6283156476803" target="_blank" class="link-card">💬 Hubungi Saya (WhatsApp)</a>
-</div>
+            <a href="https://google.com" target="_blank" class="link-card">
+                <span>🌐</span> My Portfolio
+            </a>
+            <a href="https://instagram.com/bentar_yoko" target="_blank" class="link-card">
+                <span>📸</span> Instagram
+            </a>
+            <a href="https://tiktok.com/@bentar_yoko" target="_blank" class="link-card">
+                <span>🎵</span> TikTok
+            </a>
+            <a href="https://youtube.com/@verss-v3l" target="_blank" class="link-card">
+                <span>🎮</span> YouTube Channel
+            </a>
+            <a href="https://wa.me/6283156476803" target="_blank" class="link-card" style="background: rgba(37, 211, 102, 0.25);">
+                <span>💬</span> WhatsApp
+            </a>
+        </div>
+
+        <div class="footer-tag">yoko personal website</div>
     </div>
 
 </body>
